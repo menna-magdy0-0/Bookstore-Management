@@ -7602,11 +7602,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C#Projects\\BookStore\\BookStore\\BookStore.csproj",
+      "projectUniqueName": "D:\\Backend\\Bookstore-Management\\BookStore\\BookStore\\BookStore.csproj",
       "projectName": "BookStore",
-      "projectPath": "D:\\C#Projects\\BookStore\\BookStore\\BookStore.csproj",
+      "projectPath": "D:\\Backend\\Bookstore-Management\\BookStore\\BookStore\\BookStore.csproj",
       "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "D:\\C#Projects\\BookStore\\BookStore\\obj\\",
+      "outputPath": "D:\\Backend\\Bookstore-Management\\BookStore\\BookStore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

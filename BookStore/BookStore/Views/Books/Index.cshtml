@@ -4,39 +4,60 @@
 }
 <div class="container mt-4">
     <h2 class="mb-3 text-center">📚 Book List</h2>
+    <!-- Search Bar -->
+    <form method="get" class="mb-3">
+        <div class="input-group">
+            <input type="text" name="searchFilter" value="@Context.Request.Query["searchFilter"]"
+                   class="form-control" placeholder="Search by title..." />
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-search"></i> Search
+            </button>
+        </div>
+    </form>
+
     <a asp-action="Create" class="btn btn-success mb-3">
         <i class="bi bi-plus-circle"></i> Add New Book
-        </a>
-    <div class="table-responsive">
-        <table class="table table-hover table-bordered">
-            <thead class="table-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-				@foreach (var item in Model)
-				{
-					<tr>
-						<td>@item.Id</td>
-						<td>@item.Title</td>
-						<td>
-                            <a asp-action="Details" asp-controller="Books" asp-route-id="@item.Id" class="btn btn-info btn-sm">
-                                <i class="bi bi-eye"></i> Details
-                            </a>
-                            <a asp-action="Edit" asp-controller="Books" asp-route-id="@item.Id" class="btn btn-primary btn-sm">
-								<i class="bi bi-pencil"></i> Edit
-                            </a>
-                            <a asp-action="Delete" asp-controller="Books" asp-route-id="@item.Id" class="btn btn-danger btn-sm">
-                                <i class="bi bi-trash"></i> Delete
-                            </a>
-						</td>
-					</tr>
-                    }
-            </tbody>
-        </table>
-    </div>
-</div>
+    </a>
 
+    @if (Model.Count == 0)
+    {
+        <div class="alert alert-warning" role="alert">
+            No books found!
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Title</td>
+                            <td>
+                                <a asp-action="Details" asp-controller="Books" asp-route-id="@item.Id" class="btn btn-info btn-sm">
+                                    <i class="bi bi-eye"></i> Details
+                                </a>
+                                <a asp-action="Edit" asp-controller="Books" asp-route-id="@item.Id" class="btn btn-primary btn-sm">
+                                    <i class="bi bi-pencil"></i> Edit
+                                </a>
+                                <a asp-action="Delete" asp-controller="Books" asp-route-id="@item.Id" class="btn btn-danger btn-sm">
+                                    <i class="bi bi-trash"></i> Delete
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+</div>

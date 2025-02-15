@@ -19,9 +19,13 @@ namespace BookStore.Controllers
             return Json($"Book Title {Title} is already taken");
         }
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(string searchFilter)
         {
-            List<Book> books = context.Books.ToList();
+            var books = context.Books.ToList();
+            if (!string.IsNullOrEmpty(searchFilter))
+            {
+                books = books.Where(x => x.Title.Contains(searchFilter)).ToList();
+            }
             return View("Index", books);
         }
         public IActionResult Details(int id)

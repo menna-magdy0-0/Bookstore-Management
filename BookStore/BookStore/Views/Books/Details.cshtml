@@ -1,0 +1,38 @@
+﻿@model Book
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-3 text-center">📖 Book Details</h2>
+
+    <div class="card shadow-lg">
+        <div class="card-body">
+            <h3 class="card-title text-primary">@Model.Title</h3>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong>Author:</strong> @Model.Author
+                </li>
+                <li class="list-group-item">
+                    <strong>Price:</strong> @Model.Price.ToString("C")
+                </li>
+                <li class="list-group-item">
+                    <strong>Genre:</strong> @Model.Genre
+                </li>
+                <li class="list-group-item">
+                    <strong>Published Date:</strong> @Model.PublishedDate.ToString("yyyy-MM-dd")
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="mt-3 d-flex justify-content-between">
+        <a asp-action="Index" asp-controller="Books" class="btn btn-secondary">
+            <i class="bi bi-arrow-left"></i> Back to List
+        </a>
+        <a asp-action="Edit" asp-controller="Books" asp-route-id="@Model.Id" class="btn btn-primary">
+            <i class="bi bi-pencil"></i> Edit
+        </a>
+    </div>
+</div>
